@@ -20,13 +20,6 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  unittest:
-    docker:
-      - image: cimg/node:16.13.2
-    steps:
-      - checkout
-      - node/install-packages
-      - run: npm run test:ci
 
 
 # Invoke jobs via workflows
@@ -35,5 +28,5 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - unittest
+      - node/test
 
